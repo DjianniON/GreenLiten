@@ -1,0 +1,78 @@
+{% extends 'baseform.html.twig' %}
+
+{% block title %}Profile{% endblock %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div id="profil">
+            <div class="col-sm-4">
+            </div>
+                <div class="col-sm-12">
+                    <ul class="nav nav-tabs mx-auto">
+                        <li class="active"><a href="#info" data-toggle="tab">Profile</a></li>
+                        <li><a href="#don" data-toggle="tab">History donation</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane active mx-auto" id="info">
+                            <div class="col-sm-10">
+                                <table id="tab" class="table table-bordered table-condensed table-hover table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Full name</th>
+                                    </thead>
+                                    <tbody>
+                                        <td>{{ user.fullName }}</td>
+                                    </tbody>
+                                    </tr>
+                                    <thead>
+                                    <tr>
+                                        <th>Username</th>
+                                    </thead>
+                                    <tbody>
+                                    <td>{{ user.username }}</td>
+                                    </tbody>
+                                    </tr>
+                                    <thead>
+                                    <tr>
+                                        <th>Email address</th>
+                                    </thead>
+                                    <tbody>
+                                    <td>{{ user.email }}</td>
+                                    </tbody>
+                                    </tr>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="tab-pane mx-auto" id="don">
+                            <div class="col-sm-10">
+                                <table id="tab" class="table table-bordered table-condensed table-hover table-striped">
+                                    <thead>
+                                    <tr>
+                                        <th>Date</th>
+                                        <th>Amount</th>
+                                        <th>Project</th>
+                                    </tr>
+                                    </thead>
+                                    <tbody>
+                                    {% for don in donlist %}
+                                    <tr>
+                                        <td>{{ don.donDate|date('Y-m-d') }}</td>
+                                        <td>{{ don.donValue }} $</td>
+                                        <td>{{ don.Project }}</td>
+                                    </tr>
+                                    {% endfor %}
+                                    </tbody>
+                                </table>
+                            </div>
+                    </div>
+                </div>
+    </div>
+</div>
+
+
+    
+    
+    
+
+{% endblock %}

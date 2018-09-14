@@ -1,0 +1,83 @@
+{% extends 'baseblog.html.twig' %}
+
+
+
+{% block content %}
+<!-- Page Content -->
+    <div class="container post">
+
+      <div class="row">
+
+        <!-- Post Content Column -->
+        <div class="col-lg-8">
+
+          <!-- Titre -->
+          <h1 class="mt-4">{{ post.postTitle }}</h1>
+
+          <!-- Auteur -->
+          <p class="lead">
+            by
+            <a href="#">{{ post.Author }}</a>
+          </p>
+
+          <hr>
+
+          <!-- Date -->
+          <p>Published on {{ post.Date|date('F, jS \\a\\t g:ia') }}</p>
+
+          <hr>
+
+          <!-- Preview Image -->
+          <img class="img-fluid rounded" src="{{ post.img }}" alt="post image">
+
+          <hr>
+
+          <!-- Post Content -->
+          <p class="lead">{{ post.postContent }}</p>
+
+          <cite title="Source Title">Tags : {{ post.postTag }}</cite>
+
+          <hr>
+
+        <!-- Single Comment -->
+          <div class="media mb-4">
+          <div class="media-body">
+            {% if post.blogComms is empty %}
+            <p>No comments for the moment. Be the first One !</p>
+            {% else %}
+            <div class="text-center">
+            <h5>Comments section</h5>
+            </div>
+            {% for comm in post.blogComms %}
+            <hr>
+            <h6 class="mt-0">{{ comm.Author }} - {{ comm.postDate|date('F jS, g:ia') }}</h6>
+            <p>{{ comm.postContent }}</p>
+            {% endfor %}
+            {% endif %}
+              
+            </div>
+          </div>
+
+        
+          <!-- Comments Form -->
+          {% if user.username is defined %}
+          <div class="card my-4">
+            <h5 class="card-header">Leave a Comment:</h5>
+            <div class="card-body">
+              {{ form_start(form) }}
+                <div class="form-group">
+                  {{ form_row(form.post_content, {'attr': {'class': 'form-control','placeholder':'Your comment here...','rows':'5'}}) }}
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              {{ form_end(form) }}
+            </div>
+          </div>
+          {% else %}
+          <div class="card my-4">
+            <h5 class="card-header">You must be logged in to comment ! <a href="{{path('security_login')}}">Log in</a>.</h5>
+          </div>
+          {% endif %}
+        </div>
+        </div>
+        </div>
+        {% endblock %}

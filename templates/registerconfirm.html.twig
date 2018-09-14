@@ -1,0 +1,23 @@
+{% extends 'baseform.html.twig' %}
+
+{% block title %}Donation confirmation{% endblock %}
+
+{% block content %}
+<section class="login">
+    <div class="container">
+        <div class="row">
+            <div class="identification">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-heading text-white">Registration confirmation</h2>
+                </div>
+                <div class="col-lg-8 mx-auto text-center">
+                    <p>Welcome to our community, your account has been created. We've sent you an e-mail in order to confirm your registration.</p>
+                </div>
+                <div class="register mx-auto text-center">
+                    <a class="btn btn-primary btn-lg" href="{{path('security_login')}}" role="button">Login now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

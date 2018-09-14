@@ -1,0 +1,39 @@
+{% extends 'baseform.html.twig' %}
+ 
+{% block content %}
+
+
+    <section class="login">
+    <div class="container">
+        <div class="row">
+            <div class="identification">
+            <form action="{{ path('security_login') }}" method="post">
+                <div class="col-lg-8 mx-auto text-center">
+                    <h2 class="section-heading text-white">Login</h2>
+                     {% if error %}
+                    <div class="alert alert-danger">
+                            {{ error.messageKey }}
+                    </div>
+                     {% endif %}
+                </div>
+                    <div class="input-group mx-auto">
+                        <span class="input-group-addon" id="sizing-addon2"></span>
+                        <input type="text" class="form-control" placeholder="Username" id="username" name="_username" aria-describedby="sizing-addon2" value="{{ last_username }}">
+                    </div>
+                <div class="input-group mx-auto">
+                    <span class="input-group-addon" id="sizing-addon2"></span>
+                    <input type="password" id="password" name="_password" class="form-control" placeholder="Password" aria-describedby="sizing-addon2">
+                </div>
+                <input type="hidden" name="_csrf_token" value="{{ csrf_token('authenticate') }}"/>
+                <div class="jumbotron  text-center">
+                    <button class="btn btn-primary btn-lg" type="submit">Login</button>
+                    <p class="sin"><i>Don't have an account ? <a href="{{path('user_registration')}}"> Sign up</a></i></p>
+                </div>
+            </div>
+            </form>
+        </div>
+    </div>
+</section>
+ 
+        
+{% endblock %}

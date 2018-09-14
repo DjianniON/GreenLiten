@@ -1,0 +1,94 @@
+{% extends 'base.html.twig' %}
+
+
+
+{% block content %}
+  <header class="masthead text-center text-white d-flex">
+      <div class="container my-auto">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <p class="text-faded mb-5">Make greener red panda's life</p>
+            <a class="btn btn-primary btn-xl js-scroll-trigger btnhead" href="{{ path('donate') }}">Make a donation</a>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- .. -->
+
+    <!-- our project -->
+    <section class="bg-primary" id="about">
+      <div class="container">
+        <div class="row">
+          <div class="col-xs-12">
+            <img class="imgproject" src="img/sep1.png">
+            <br>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-lg-8 mx-auto text-center">
+
+            <h2 class="section-heading text-white text-center">Our project</h2>
+            <br>
+            <p class="text-faded mb-4">Do you know the Red Panda? This little reddish-brown cutie lives in the Eastern Himalayas and Southwestern China. He is a bit larger than a cat, and has a big fluffy tail. His bear like body makes us want to give him a big hug!
+              Unfortunately, this species is considered as endangered today. There is only less than 10,000 individuals throughout the globe. That’s why we have created our association ‘Green Liten’, to save the red pandas in China.
+              Help us to rescue them by participating to our operations</p>
+            <a class="btn btn-light btn-xl js-scroll-trigger btnproject" href="{{ path('about') }}">Learn more about it</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- .. -->
+
+    <!-- our operation -->
+    <section class="bg-light" id="operation">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-8 mx-auto">
+            <img class="imgproject" src="img/sep2.png">
+            <br>
+          </div>
+          <div class="col-lg-12 text-center rond">
+            <h2 class="section-heading text-uppercase">Our operations</h2>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle rond" src="img/rond2.png" alt="">
+              <p class="text-muted txt">Bamboo plantation</p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle rond" src="img/rond4.png" alt="">
+              <p class="text-muted txt">Diet plan</p>
+            </div>
+          </div>
+          <div class="col-sm-4">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle rond" src="img/rond5.png" alt="">
+              <p class="text-muted txt">Fund research</p>
+            </div>
+          </div>
+        </div>
+        <div class="row" style="margin-left: 10%" >
+          <div class="col-sm-6">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle rond" src="img/rond1.png" alt="">
+              <p class="text-muted txt">Species conservation</p>
+            </div>
+          </div>
+            <div class="clo-sm-6">
+            <div class="team-member">
+              <img class="mx-auto rounded-circle rond" src="img/rond3.png" alt="">
+              <p class="text-muted txt">Fight against poaching</p>
+            </div>
+          </div>
+         </div>
+        </div>
+      </div>
+    </section>
+        
+{% endblock %}

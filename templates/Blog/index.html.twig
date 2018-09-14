@@ -1,0 +1,66 @@
+{% extends 'baseblog.html.twig' %}
+
+{% block title %}Blog - {{parent()}}{% endblock %}
+
+
+{% block content %}
+<div class="container post">
+
+
+
+    {% for post in post %}
+      {% if loop.first %}
+<div class="row">
+    <div class="card mb-4 col-md-12 mx-auto" id="art1">
+      <a href="{{ path('post', { 'name': post.id }) }}"><img class="card-img-top" src="{{ post.img }}" alt="post img"></a>
+        <div class="card-body">
+        <h4 class="card-title">
+          <a href="{{ path('post', { 'name': post.id }) }}">{{ post.postTitle }}</a>
+          </h4>
+               <a href="{{ path('post', { 'name': post.id }) }}" class="btn btn-primary">Read More &rarr;</a>
+        </div>
+                 <div class="card-footer text-muted">
+                   Published on {{ post.Date|date('F, jS \\a\\t g:ia') }} by {{ post.Author }}.
+                </div>
+    </div>
+  </div>
+  {% endif %}
+  {% endfor %}
+
+
+  <div class="row">
+    {% set nb = 0 %}
+    {% for post in post %}
+    {% if not loop.first and nb < 2 %}
+    {% set nb = nb +1 %}
+    <div class="col-lg-6 mx-auto portfolio-item">
+      <div class="card h-100">
+        <a href="{{ path('post', { 'name': post.id }) }}"><img class="card-img-top" src="{{ post.img }}" alt=""></a>
+        <div class="card-body">
+          <h4 class="card-title">
+            <a href="{{ path('post', { 'name': post.id }) }}">{{ post.postTitle }}</a>
+          </h4>
+          <a href="{{ path('post', { 'name': post.id }) }}" class="btn btn-primary">Read More &rarr;</a>
+      <hr>
+        <div class="card-footer text-muted">
+          Published on {{ post.Date|date('F, jS \\a\\t g:ia') }} by {{ post.Author }}.
+        </div>
+        </div>
+      </div>
+    </div>
+      {% endif %}
+      {% endfor %}
+    </div>
+      <!-- /.row -->
+      <div class="mx-auto text-center">
+      {% if page < 3 %}
+      <a href="{{ path('blog',{ 'page': page + 3 }) }}"> Next >> </p> 
+      {% else %}
+      <a href="{{ path('blog',{ 'page': page - 3 }) }}"> << Prev </p>
+      {% endif %}
+      </div>
+    </div>
+    
+
+</div>
+{% endblock %}
